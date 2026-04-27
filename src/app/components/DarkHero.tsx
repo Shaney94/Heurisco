@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Pill } from './Pill';
 
@@ -13,12 +14,14 @@ const projects = [
 ];
 
 export function DarkHero() {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
   return (
     <section className="h-screen relative overflow-hidden bg-black flex items-end pb-32 pt-20">
-      {/* Video placeholder background - glossy black with violet/blue streaks */}
-      <div className="absolute inset-0 bg-black overflow-hidden">
+      {/* Hero background - uses public/videos/hero-bg.mp4 when available. */}
+      <div className="absolute inset-0 z-0 bg-black overflow-hidden">
         {/* Glossy abstract surfaces */}
-        <div className="absolute inset-0">
+        <div className={`absolute inset-0 transition-opacity duration-700 ${isVideoReady ? 'opacity-0' : 'opacity-100'}`}>
           {/* Diagonal glossy streaks */}
           <motion.div
             animate={{
@@ -93,13 +96,25 @@ export function DarkHero() {
           />
         </div>
 
+        <video
+          className={`absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-700 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
+          src="/videos/hero-bg.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          onCanPlay={() => setIsVideoReady(true)}
+          onError={() => setIsVideoReady(false)}
+          aria-hidden="true"
+        />
+
         {/* Dark overlay for contrast and vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.6) 100%)' }} />
+        <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        <div className="absolute inset-0 z-20" style={{ background: 'radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.6) 100%)' }} />
       </div>
 
       {/* Project pills - left side */}
-      <div className="absolute left-6 lg:left-10 top-[38%] hidden md:flex flex-col gap-2 z-20">
+      <div className="absolute left-6 lg:left-10 top-[38%] hidden md:flex flex-col gap-2 z-30 pointer-events-auto">
         {projects.map((project, index) => (
           <Pill key={project} delay={0.8 + index * 0.08}>
             {project}
@@ -112,7 +127,7 @@ export function DarkHero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute top-[45%] right-6 lg:right-16 max-w-[270px] hidden lg:block z-20"
+        className="absolute top-[45%] right-6 lg:right-16 max-w-[270px] hidden lg:block z-20 pointer-events-none"
       >
         <p className="text-white/45 mb-3" style={{ fontSize: '0.8125rem', lineHeight: 1.65, fontWeight: 300, fontFamily: 'Inter, sans-serif' }}>
           Heurisco helps teams discover clearer digital paths through service design, UX design, web design, and practical transformation.
@@ -125,7 +140,7 @@ export function DarkHero() {
       </motion.div>
 
       {/* Main headline - centered with editorial offset */}
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-12 relative z-20 w-full">
+      <div className="max-w-[1800px] mx-auto px-6 lg:px-12 relative z-20 w-full pointer-events-none">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
