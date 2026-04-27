@@ -1,0 +1,171 @@
+Create a premium React/Tailwind website for a UX, service design, and digital transformation agency called Heurisco. Use the attached MetaLab screenshot as the main visual style reference and the attached video only for animation behaviour, scroll pacing, transitions, and motion feel.
+
+Do not copy MetaLab’s exact brand, logo, client names, wording, or imagery. Recreate the visual logic: dark immersive hero, refined pill navigation, cinematic abstract background, elegant serif hero typography, floating UI elements, strong contrast, premium spacing, and smooth agency-level motion.
+
+Important: this will be exported and refined in Codex, so keep it React/Tailwind compatible. Use clean components, semantic sections, reusable cards, simple CSS/Tailwind visuals, responsive grids, and production-safe animations. Do not use WebGL, Three.js, shaders, canvas, particles, complex scroll-jacking, or heavy custom JavaScript.
+
+Visual direction:
+• Premium digital product agency, not generic SaaS
+• Dark cinematic hero with black, deep navy, violet, and soft white highlights
+• Elegant oversized serif headline in the hero
+• Clean modern sans-serif for navigation, body text, labels, and buttons
+• Floating pill buttons inspired by the reference
+• Abstract background using CSS gradients, blurred shapes, layered panels, dark glass forms, or image placeholders
+• Strong contrast between immersive hero and lighter editorial content sections
+• Calm, confident, strategic, high-end
+• No cheap gradients, random blobs, generic stock illustrations, heavy shadows, or clutter
+
+Hero section:
+Create a full-screen hero inspired by the reference screenshot.
+
+Top navigation:
+• Left: small rounded “Menu” pill
+• Centre: Heurisco wordmark
+• Right: “CPH 12:58 PM” and a small rounded contact/mail icon
+
+Left floating service/client-style pill stack:
+Instead of client names, use Heurisco capability pills:
+Service Design
+UX Research
+Digital Products
+Transformation
+Information Architecture
+Journey Mapping
+Systems Thinking
+All Work
+
+Hero headline:
+“Designing clarity
+for complex services”
+
+Set the headline in a large elegant serif, white/off-white, positioned low-centre or slightly off-centre like the reference. Use strong line breaks and generous kerning.
+
+Hero supporting text:
+“Heurisco helps organisations understand messy systems, improve digital journeys, and turn service insight into usable digital experiences.”
+
+Place this smaller text in the upper-right/mid-right area, similar to the reference. Add a small dot or subtle marker below it.
+
+Hero background:
+Create a dark abstract cinematic background using simple CSS/Tailwind-friendly shapes: glossy black panels, violet highlights, blurred diagonal forms, soft radial gradients, or layered rounded shapes. It should feel like a premium abstract interface surface, not a normal flat landing page. Keep it code-safe and responsive.
+
+Hero motion:
+Use subtle motion only:
+• slow background drift
+• headline fade/slide reveal
+• pills fade in progressively
+• small dot pulse
+• smooth hover states
+No 3D engine, no canvas, no WebGL.
+
+After the hero, create lighter editorial sections while preserving the premium agency feel.
+
+Section 2: Intro
+Large editorial statement:
+“Better digital experiences start with clearer understanding.”
+
+Text:
+“We combine UX design, service design, systems thinking, and practical delivery to help teams move from uncertainty to action.”
+
+Use a spacious two-column editorial layout with strong typography.
+
+Section 3: Services
+Create four refined cards:
+Service Design
+Mapping journeys, touchpoints, handoffs, pain points, and operational realities.
+
+UX and UI Design
+Designing clear, accessible, user-centred interfaces for websites, platforms, and digital products.
+
+Information Architecture
+Structuring complex content, navigation, and user flows so people can find and act with confidence.
+
+Digital Transformation
+Connecting user needs, organisational goals, and implementation constraints into practical digital change.
+
+Cards should use crisp borders, subtle hover states, and scroll reveal animation.
+
+Section 4: Process
+Title:
+“From messy systems to clear digital direction.”
+
+Create four connected stages:
+Discover
+Map
+Design
+Implement
+
+Descriptions:
+Discover: Understand users, services, systems, constraints, and opportunities.
+Map: Visualise journeys, decisions, pain points, dependencies, and service gaps.
+Design: Turn insight into prototypes, interfaces, content structures, and service improvements.
+Implement: Support delivery through prioritisation, specifications, iteration, and practical handover.
+
+Make this feel like a premium service-system sequence using simple divs, lines, borders, numbers, and spacing. Avoid basic corporate diagram styling.
+
+Section 5: Selected work
+Create three large premium case-study cards:
+University digital journey audit
+Improving student-facing digital journeys through UX review, content analysis, and journey mapping.
+Category: UX audit / Higher education
+
+Short course booking experience review
+Benchmarking discovery, booking, payment, and trust cues across competing university short-course journeys.
+Category: UX research / Conversion
+
+Service website redesign
+Restructuring a service organisation’s website to improve clarity, navigation, accessibility, and user confidence.
+Category: Service design / Website redesign
+
+Each card needs a large title, summary, category label, premium visual placeholder, and hover state. Use simple coded visuals such as journey-map lines, interface fragments, audit boards, blueprint rows, or layered UI panels. Do not make them look like blog cards.
+
+Section 6: Dark transformation section
+Return to a dark premium style.
+
+Headline:
+“UX, service design, and transformation working together.”
+
+Text:
+“Digital problems rarely sit only on the screen. We look at the wider service system, including user needs, content, operations, technology, handoffs, and delivery constraints.”
+
+Add three points:
+Understand the system
+Design the experience
+Support practical change
+
+Section 7: Contact and footer
+Contact headline:
+“Have a complex service or digital journey to improve?”
+
+Text:
+“Let’s map the problem, clarify the opportunity, and design a better way forward.”
+
+Button:
+“Start a conversation”
+
+Email:
+hello@heurisco.co.uk
+
+Footer:
+Heurisco
+Discovery and digital clarity
+Work
+Services
+Process
+About
+Contact
+hello@heurisco.co.uk
+
+Responsive and code requirements:
+• Desktop, tablet, and mobile layouts
+• No horizontal scrolling
+• Clean React/Tailwind components
+• Semantic HTML
+• Reusable cards and sections
+• Accessible contrast and readable typography
+• No lorem ipsum
+• No generic SaaS aesthetic
+• No WebGL, Three.js, shaders, canvas, or particles
+• Keep animations smooth, subtle, and production-safe
+
+Final goal:
+Generate a visually impressive MetaLab-inspired agency website with a cinematic dark hero, elegant serif headline, floating capability pills, and polished editorial sections, while remaining realistic to refine later in Codex.
