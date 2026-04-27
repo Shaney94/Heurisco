@@ -1,11 +1,43 @@
+# Heurisco
 
-  # Read Files and Prompt
+Heurisco is a Vite and React single-page site generated from a Figma Make prototype and prepared for local development and production builds.
 
-  This is a code bundle for Read Files and Prompt. The original project is available at https://www.figma.com/design/tImSsM8unX5WNNqMTkSsgw/Read-Files-and-Prompt.
+## Project Structure
 
-  ## Running the code
+- `src/app/App.tsx` coordinates the preloader, hero, menu, and contact states.
+- `src/app/components/` contains the main page sections and shared UI components.
+- `src/app/hooks/` contains reusable React hooks.
+- `src/styles/` contains Tailwind, font, and theme styles.
+- `src/imports/` contains design reference exports from the prototype process.
 
-  Run `npm i` to install the dependencies.
+## Development
 
-  Run `npm run dev` to start the development server.
-  
+Install dependencies:
+
+```sh
+npm install
+```
+
+Start the local development server:
+
+```sh
+npm run dev
+```
+
+Run a production build:
+
+```sh
+npm run build
+```
+
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+Run TypeScript checks:
+
+```sh
+npm run typecheck
+```
