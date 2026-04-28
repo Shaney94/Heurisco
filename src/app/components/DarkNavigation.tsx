@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { EnvelopeIcon } from './EnvelopeIcon';
-
 interface DarkNavigationProps {
   onMenuClick: () => void;
   onContactClick: () => void;
+  onHomeClick: () => void;
 }
 
-export function DarkNavigation({ onMenuClick, onContactClick }: DarkNavigationProps) {
+export function DarkNavigation({ onMenuClick, onContactClick, onHomeClick }: DarkNavigationProps) {
   const [time, setTime] = useState('');
   const [isMailHovered, setIsMailHovered] = useState(false);
 
@@ -31,8 +30,11 @@ export function DarkNavigation({ onMenuClick, onContactClick }: DarkNavigationPr
           Menu
         </button>
 
-        <div
-          className="absolute left-1/2 -translate-x-1/2 text-white"
+        <button
+          type="button"
+          onClick={onHomeClick}
+          aria-label="Return to home"
+          className="absolute left-1/2 -translate-x-1/2 text-white cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
           style={{
             fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
             fontSize: '1.0625rem',
@@ -41,38 +43,54 @@ export function DarkNavigation({ onMenuClick, onContactClick }: DarkNavigationPr
           }}
         >
           Heurisco
-        </div>
+        </button>
 
         <div className="flex items-center gap-3 ml-auto">
           <div className="text-white/50" style={{ fontSize: '0.8125rem', fontFamily: 'Inter, sans-serif' }}>
             {time}
           </div>
-          <button
-            onClick={onContactClick}
-            onMouseEnter={() => setIsMailHovered(true)}
-            onMouseLeave={() => setIsMailHovered(false)}
-            className="relative rounded-full bg-gray-600/25 backdrop-blur-sm border border-gray-400/20 hover:bg-black/60 hover:border-white/30 flex items-center justify-center overflow-hidden transition-all duration-300"
-            style={{
-              width: isMailHovered ? '140px' : '28px',
-              height: '28px',
-            }}
-          >
-            <div className="flex items-center text-white">
-              <EnvelopeIcon className="w-3.5 h-3.5 flex-shrink-0" />
-              <span
-                className="ml-2 whitespace-nowrap"
-                style={{
-                  fontSize: '0.8125rem',
-                  fontFamily: 'Inter, sans-serif',
-                  opacity: isMailHovered ? 1 : 0,
-                  transition: 'opacity 0.3s ease',
-                  pointerEvents: 'none',
-                }}
-              >
-                Get in touch
-              </span>
-            </div>
-          </button>
+          <div className="relative h-7 w-7 md:w-[140px]">
+            <button
+              onClick={onContactClick}
+              onMouseEnter={() => setIsMailHovered(true)}
+              onMouseLeave={() => setIsMailHovered(false)}
+              className="absolute right-0 top-0 rounded-full bg-gray-600/25 backdrop-blur-sm border border-gray-400/20 hover:bg-black/60 hover:border-white/30 flex items-center justify-center overflow-hidden transition-all duration-300"
+              style={{
+                width: isMailHovered ? '140px' : '28px',
+                height: '28px',
+              }}
+            >
+              <div className="flex items-center justify-center text-white">
+                <svg
+                  className="w-3.5 h-3.5 flex-shrink-0 text-white/90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+                <span
+                  className="whitespace-nowrap overflow-hidden"
+                  style={{
+                    fontSize: '0.8125rem',
+                    fontFamily: 'Inter, sans-serif',
+                    width: isMailHovered ? '88px' : 0,
+                    marginLeft: isMailHovered ? '8px' : 0,
+                    opacity: isMailHovered ? 1 : 0,
+                    transition: 'width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  Get in touch
+                </span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

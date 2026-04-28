@@ -6,6 +6,7 @@ interface MenuOverlayProps {
   isOpen: boolean;
   onClose: () => void;
   onContactClick: () => void;
+  onHomeClick: () => void;
 }
 
 const menuItems = [
@@ -20,7 +21,7 @@ const menuItems = [
   { name: 'Contact', color: '#6366F1' },
 ];
 
-export function MenuOverlay({ isOpen, onClose, onContactClick }: MenuOverlayProps) {
+export function MenuOverlay({ isOpen, onClose, onContactClick, onHomeClick }: MenuOverlayProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
@@ -45,8 +46,11 @@ export function MenuOverlay({ isOpen, onClose, onContactClick }: MenuOverlayProp
                 Close
               </button>
 
-              <div
-                className="absolute left-1/2 -translate-x-1/2 text-white"
+              <button
+                type="button"
+                onClick={onHomeClick}
+                aria-label="Return to home"
+                className="absolute left-1/2 -translate-x-1/2 text-white cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
                 style={{
                   fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
                   fontSize: '1.0625rem',
@@ -55,7 +59,7 @@ export function MenuOverlay({ isOpen, onClose, onContactClick }: MenuOverlayProp
                 }}
               >
                 Heurisco
-              </div>
+              </button>
             </div>
           </div>
 

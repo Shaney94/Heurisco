@@ -4,9 +4,10 @@ import { EnvelopeIcon } from './EnvelopeIcon';
 
 interface ContactStateProps {
   onBack: () => void;
+  onHomeClick: () => void;
 }
 
-export function ContactState({ onBack }: ContactStateProps) {
+export function ContactState({ onBack, onHomeClick }: ContactStateProps) {
   const [time, setTime] = useState('');
 
   useEffect(() => {
@@ -38,8 +39,11 @@ export function ContactState({ onBack }: ContactStateProps) {
             Menu
           </button>
 
-          <div
-            className="absolute left-1/2 -translate-x-1/2 text-white"
+          <button
+            type="button"
+            onClick={onHomeClick}
+            aria-label="Return to home"
+            className="absolute left-1/2 -translate-x-1/2 text-white cursor-pointer rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
             style={{
               fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
               fontSize: '1.0625rem',
@@ -48,7 +52,7 @@ export function ContactState({ onBack }: ContactStateProps) {
             }}
           >
             Heurisco
-          </div>
+          </button>
 
           <div className="flex items-center gap-3 ml-auto">
             <div className="text-white/50" style={{ fontSize: '0.8125rem', fontFamily: 'Inter, sans-serif' }}>

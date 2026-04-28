@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 
 interface PreloaderProps {
@@ -5,6 +6,11 @@ interface PreloaderProps {
 }
 
 export function Preloader({ onComplete }: PreloaderProps) {
+  useEffect(() => {
+    const timeout = window.setTimeout(onComplete, 2200);
+    return () => window.clearTimeout(timeout);
+  }, [onComplete]);
+
   return (
     <motion.div
       initial={{ opacity: 1 }}

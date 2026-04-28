@@ -10,20 +10,24 @@ type AppState = 'loading' | 'hero' | 'menu' | 'contact-loading' | 'contact';
 
 export default function App() {
   const [state, setState] = useState<AppState>('loading');
+  const [activeProject, setActiveProject] = useState<string | null>(null);
 
   const handlePreloaderComplete = () => {
     setState('hero');
   };
 
   const handleMenuClick = () => {
+    setActiveProject(null);
     setState('menu');
   };
 
   const handleMenuClose = () => {
+    setActiveProject(null);
     setState('hero');
   };
 
   const handleContactClick = () => {
+    setActiveProject(null);
     setState('contact-loading');
     setTimeout(() => {
       setState('contact');
@@ -31,6 +35,12 @@ export default function App() {
   };
 
   const handleContactBack = () => {
+    setActiveProject(null);
+    setState('hero');
+  };
+
+  const handleHomeClick = () => {
+    setActiveProject(null);
     setState('hero');
   };
 
@@ -43,13 +53,13 @@ export default function App() {
 
       {(state === 'hero' || state === 'menu') && (
         <>
-          <DarkNavigation onMenuClick={handleMenuClick} onContactClick={handleContactClick} />
-          <DarkHero />
-          <MenuOverlay isOpen={state === 'menu'} onClose={handleMenuClose} onContactClick={handleContactClick} />
+          <DarkNavigation onMenuClick={handleMenuClick} onContactClick={handleContactClick} onHomeClick={handleHomeClick} />
+          <DarkHero activeProject={activeProject} onProjectActivate={setActiveProject} onProjectClear={() => setActiveProject(null)} />
+          <MenuOverlay isOpen={state === 'menu'} onClose={handleMenuClose} onContactClick={handleContactClick} onHomeClick={handleHomeClick} />
         </>
       )}
 
-      {state === 'contact' && <ContactState onBack={handleContactBack} />}
+      {state === 'contact' && <ContactState onBack={handleContactBack} onHomeClick={handleHomeClick} />}
     </div>
   );
 }
