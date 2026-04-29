@@ -24,8 +24,8 @@ export function DarkNavigation({ onMenuClick, onContactClick, onHomeClick }: Dar
       <div className="max-w-[1800px] mx-auto flex items-center justify-between">
         <button
           onClick={onMenuClick}
-          className="h-8 w-[86px] rounded-full bg-[rgba(39,37,50,0.9)] backdrop-blur-sm text-white/85 hover:bg-[#302d3c] hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
-          style={{ fontSize: '0.875rem', fontFamily: 'Inter, sans-serif' }}
+          className="h-8 w-[84px] rounded-full border border-transparent bg-[rgba(39,37,50,0.9)] backdrop-blur-sm text-white/85 hover:border-white/70 hover:bg-white/[0.02] hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+          style={{ fontSize: '0.875rem', fontFamily: 'Inter, sans-serif', fontWeight: 400 }}
         >
           Menu
         </button>

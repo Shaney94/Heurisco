@@ -264,7 +264,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
       </div>
 
       {/* Project pills - left side */}
-      <div className="absolute left-7 lg:left-12 top-[33%] hidden md:flex flex-col gap-2 z-30 pointer-events-auto">
+      <div className="absolute left-6 lg:left-8 top-[31%] hidden md:flex flex-col gap-2 z-30 pointer-events-auto">
         {projects.map((project, index) => (
           <Pill
             key={project.label}

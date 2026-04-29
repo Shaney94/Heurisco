@@ -33,12 +33,12 @@ export function Pill({
       onMouseLeave={onMouseLeave}
       onFocus={onFocus}
       onBlur={onBlur}
-      className={`relative z-30 h-8 lg:h-[34px] px-3.5 lg:px-4 rounded-full backdrop-blur-sm transition-colors duration-300 cursor-pointer text-left whitespace-nowrap pointer-events-auto text-sm lg:text-[0.9375rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 ${
+      className={`relative z-30 h-7 lg:h-8 px-3.5 lg:px-4 rounded-full border backdrop-blur-sm transition-colors duration-300 cursor-pointer text-left whitespace-nowrap pointer-events-auto text-sm lg:text-[0.9375rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 ${
         active
-          ? 'bg-[#343140] text-white'
-          : 'bg-[rgba(39,37,50,0.9)] text-white/85 hover:bg-[#302d3c] hover:text-white'
+          ? 'border-white/70 bg-white/[0.02] text-white'
+          : 'border-transparent bg-[rgba(39,37,50,0.9)] text-white/85 hover:border-white/70 hover:bg-white/[0.02] hover:text-white'
       }`}
-      style={{ fontWeight: 500, fontFamily: 'Inter, sans-serif', pointerEvents: 'auto' }}
+      style={{ fontWeight: 400, fontFamily: 'Inter, sans-serif', pointerEvents: 'auto' }}
     >
       {children}
     </motion.button>
