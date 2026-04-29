@@ -259,12 +259,12 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
         <SplineHeroBackground />
 
         {/* Dark overlay for contrast and vignette */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.6) 100%)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/68" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, transparent 18%, rgba(0,0,0,0.68) 100%)' }} />
       </div>
 
       {/* Project pills - left side */}
-      <div className="absolute left-6 lg:left-10 top-[38%] hidden md:flex flex-col gap-2 z-30 pointer-events-auto">
+      <div className="absolute left-7 lg:left-12 top-[33%] hidden md:flex flex-col gap-2.5 z-30 pointer-events-auto">
         {projects.map((project, index) => (
           <Pill
             key={project.label}
