@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { Pill } from './Pill';
+import { SplineHeroBackground } from './SplineHeroBackground';
 
 export interface ProjectPreviewData {
   label: string;
@@ -254,6 +255,8 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
             }}
           />
         </div>
+
+        <SplineHeroBackground />
 
         {/* Dark overlay for contrast and vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
