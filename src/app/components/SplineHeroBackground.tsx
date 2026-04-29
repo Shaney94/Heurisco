@@ -62,7 +62,7 @@ export function SplineHeroBackground() {
       <SplineErrorBoundary>
         <Suspense fallback={null}>
           <div
-            className={`absolute inset-0 h-full w-full scale-[1.08] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`absolute left-1/2 top-1/2 h-[140vh] w-[140vw] -translate-x-1/2 -translate-y-1/2 scale-[1.18] transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
           >
             <Spline
               scene={SPLINE_SCENE_URL}
