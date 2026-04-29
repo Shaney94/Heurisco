@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 import { Pill } from './Pill';
 import { SplineHeroBackground } from './SplineHeroBackground';
 
@@ -174,10 +175,45 @@ function ProjectPreview({ project }: { project: ProjectPreviewData }) {
 }
 
 export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: DarkHeroProps) {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [mobileProjectIndex, setMobileProjectIndex] = useState(0);
   const activeProjectData = projects.find((project) => project.label === activeProject) ?? null;
 
+  useEffect(() => {
+    const section = heroRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const updateMobileProject = () => {
+      if (!mediaQuery.matches) {
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const scrollableDistance = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, -rect.top / scrollableDistance));
+      const nextIndex = Math.min(projects.length - 1, Math.floor(progress * projects.length));
+      setMobileProjectIndex(nextIndex);
+    };
+
+    updateMobileProject();
+    window.addEventListener('scroll', updateMobileProject, { passive: true });
+    window.addEventListener('resize', updateMobileProject);
+    mediaQuery.addEventListener('change', updateMobileProject);
+
+    return () => {
+      window.removeEventListener('scroll', updateMobileProject);
+      window.removeEventListener('resize', updateMobileProject);
+      mediaQuery.removeEventListener('change', updateMobileProject);
+    };
+  }, []);
+
   return (
-    <section className="h-screen relative overflow-hidden bg-black flex items-end pb-32 pt-20">
+    <section ref={heroRef} className="relative min-h-[240svh] overflow-hidden bg-black md:flex md:h-screen md:min-h-0 md:items-end md:pb-32 md:pt-20">
       {/* Video placeholder background - glossy black with violet/blue streaks */}
       <div className="absolute inset-0 bg-black overflow-hidden">
         {/* Glossy abstract surfaces */}
@@ -193,7 +229,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute top-0 -right-1/4 w-[800px] h-[1200px]"
+            className="absolute -right-1/3 top-[6svh] h-[780px] w-[520px] md:top-0 md:-right-1/4 md:h-[1200px] md:w-[800px]"
             style={{
               background: 'linear-gradient(135deg, transparent 0%, rgba(99, 102, 241, 0.3) 30%, rgba(139, 92, 246, 0.35) 50%, transparent 100%)',
               transform: 'rotate(45deg)',
@@ -211,7 +247,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute top-1/4 left-0 w-[700px] h-[900px]"
+            className="absolute left-[-45%] top-[10svh] h-[760px] w-[520px] md:left-0 md:top-1/4 md:h-[900px] md:w-[700px]"
             style={{
               background: 'linear-gradient(60deg, rgba(67, 56, 202, 0.25) 0%, rgba(88, 28, 135, 0.2) 50%, transparent 100%)',
               transform: 'rotate(-30deg)',
@@ -229,7 +265,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="absolute bottom-0 right-1/3 w-[900px] h-[800px]"
+            className="absolute bottom-[18svh] right-[-55%] h-[680px] w-[620px] md:bottom-0 md:right-1/3 md:h-[800px] md:w-[900px]"
             style={{
               background: 'radial-gradient(ellipse at center, rgba(147, 51, 234, 0.25) 0%, rgba(79, 70, 229, 0.15) 40%, transparent 70%)',
               filter: 'blur(90px)',
@@ -238,7 +274,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
 
           {/* Sharp light streaks */}
           <div
-            className="absolute top-1/4 right-1/4 w-[600px] h-2"
+            className="absolute right-[-15%] top-[34svh] h-2 w-[520px] md:right-1/4 md:top-1/4 md:w-[600px]"
             style={{
               background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent)',
               filter: 'blur(4px)',
@@ -247,7 +283,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
           />
 
           <div
-            className="absolute bottom-1/3 left-1/4 w-[500px] h-2"
+            className="absolute bottom-[34svh] left-[-20%] h-2 w-[420px] md:bottom-1/3 md:left-1/4 md:w-[500px]"
             style={{
               background: 'linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.35), transparent)',
               filter: 'blur(3px)',
@@ -264,7 +300,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
       </div>
 
       {/* Project pills - left side */}
-      <div className="absolute left-6 lg:left-8 top-[31%] hidden md:flex flex-col gap-2 z-30 pointer-events-auto">
+      <div className="absolute left-6 top-[31%] z-30 hidden flex-col gap-2 pointer-events-auto md:flex lg:left-8">
         {projects.map((project, index) => (
           <Pill
             key={project.label}
@@ -285,6 +321,53 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
         {activeProjectData && <ProjectPreview project={activeProjectData} />}
       </AnimatePresence>
 
+      <div className="sticky top-0 z-20 h-[100svh] w-full md:hidden">
+        <motion.h1
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.25 }}
+          className="absolute left-5 right-5 top-[22svh] text-white"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: 'clamp(3.25rem, 15vw, 5rem)',
+            fontWeight: 300,
+            lineHeight: 0.98,
+            letterSpacing: '0.015em',
+          }}
+        >
+          Discovering
+          <br />
+          <span className="block pl-[18vw]">better</span>
+          <span className="block pl-[34vw]">systems</span>
+        </motion.h1>
+
+        <div className="absolute left-6 top-[54svh] flex flex-col gap-2 pointer-events-auto">
+          {projects.map((project, index) => (
+            <Pill
+              key={project.label}
+              delay={0.25 + index * 0.04}
+              active={mobileProjectIndex === index}
+              mobileActiveStyle
+              ariaLabel={`Project ${project.label}`}
+            >
+              {project.label}
+            </Pill>
+          ))}
+        </div>
+
+        <motion.div
+          initial={false}
+          animate={{ opacity: mobileProjectIndex === projects.length - 1 ? 1 : 0, y: mobileProjectIndex === projects.length - 1 ? 0 : 14 }}
+          transition={{ duration: 0.35 }}
+          className="absolute bottom-[max(2rem,env(safe-area-inset-bottom))] left-6 right-8 pointer-events-none"
+        >
+          <p className="max-w-[320px] text-white/68" style={{ fontSize: '0.9375rem', lineHeight: 1.55, fontWeight: 300, fontFamily: 'Inter, sans-serif' }}>
+            Heurisco helps teams discover clearer digital paths through service design, UX design, web design, and practical transformation.
+          </p>
+          <div className="mt-4 h-1.5 w-1.5 rounded-full bg-violet-400" />
+        </motion.div>
+      </div>
+
       {/* Supporting text - mid-right */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -303,7 +386,7 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
       </motion.div>
 
       {/* Main headline - centered with editorial offset */}
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-12 relative z-20 w-full pointer-events-none">
+      <div className="relative z-20 mx-auto hidden w-full max-w-[1800px] px-6 pointer-events-none md:block lg:px-12">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: activeProjectData ? 0 : 1, y: activeProjectData ? 18 : 0 }}
