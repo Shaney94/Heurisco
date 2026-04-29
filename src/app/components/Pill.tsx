@@ -33,10 +33,10 @@ export function Pill({
       onMouseLeave={onMouseLeave}
       onFocus={onFocus}
       onBlur={onBlur}
-      className={`relative z-30 h-[34px] lg:h-9 px-4 lg:px-5 rounded-full backdrop-blur-sm transition-colors duration-300 cursor-pointer text-left whitespace-nowrap pointer-events-auto text-[0.9375rem] lg:text-base focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 ${
+      className={`relative z-30 h-8 lg:h-[34px] px-3.5 lg:px-4 rounded-full backdrop-blur-sm transition-colors duration-300 cursor-pointer text-left whitespace-nowrap pointer-events-auto text-sm lg:text-[0.9375rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 ${
         active
           ? 'bg-[#343140] text-white'
-          : 'bg-[#272532]/95 text-white/85 hover:bg-[#302d3c] hover:text-white'
+          : 'bg-[rgba(39,37,50,0.9)] text-white/85 hover:bg-[#302d3c] hover:text-white'
       }`}
       style={{ fontWeight: 500, fontFamily: 'Inter, sans-serif', pointerEvents: 'auto' }}
     >

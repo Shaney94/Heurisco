@@ -68,9 +68,9 @@ const projects: ProjectPreviewData[] = [
     visualTone: 'denim texture, editorial product layout, e-commerce interface fragments',
   },
   {
-    label: 'Elderrune',
+    label: 'Elderune',
     category: 'Digital product / Interaction concept',
-    title: 'Elderrune',
+    title: 'Elderune',
     description: 'Creating a mythic digital experience concept with atmospheric interaction, narrative structure, and immersive interface direction.',
     accent: '#f97316',
     secondaryAccent: '#a855f7',
@@ -317,9 +317,9 @@ export function DarkHero({ activeProject, onProjectActivate, onProjectClear }: D
             letterSpacing: '0.015em',
           }}
         >
-          Delivering service
+          Discovering better
           <br />
-          <span style={{ display: 'inline-block', marginLeft: 'clamp(2rem, 6vw, 6rem)' }}>clarity</span>
+          <span style={{ display: 'inline-block', marginLeft: 'clamp(2rem, 6vw, 6rem)' }}>systems</span>
         </motion.h1>
       </div>
     </section>

@@ -16,7 +16,7 @@ const menuItems = [
   { name: 'Napier', color: '#0891B2' },
   { name: 'IKEA', color: '#059669' },
   { name: 'Alba Denim', color: '#DC2626' },
-  { name: 'Elderrune', color: '#EA580C' },
+  { name: 'Elderune', color: '#EA580C' },
   { name: 'All Work', color: '#8B5CF6' },
   { name: 'Contact', color: '#6366F1' },
 ];

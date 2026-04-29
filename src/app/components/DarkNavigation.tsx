@@ -24,8 +24,8 @@ export function DarkNavigation({ onMenuClick, onContactClick, onHomeClick }: Dar
       <div className="max-w-[1800px] mx-auto flex items-center justify-between">
         <button
           onClick={onMenuClick}
-          className="h-9 w-[92px] rounded-full bg-[#272532]/95 backdrop-blur-sm text-white/85 hover:bg-[#302d3c] hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
-          style={{ fontSize: '0.9375rem', fontFamily: 'Inter, sans-serif' }}
+          className="h-8 w-[86px] rounded-full bg-[rgba(39,37,50,0.9)] backdrop-blur-sm text-white/85 hover:bg-[#302d3c] hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+          style={{ fontSize: '0.875rem', fontFamily: 'Inter, sans-serif' }}
         >
           Menu
         </button>
@@ -46,7 +46,7 @@ export function DarkNavigation({ onMenuClick, onContactClick, onHomeClick }: Dar
         </button>
 
         <div className="flex items-center justify-end gap-2.5 ml-auto">
-          <div className="text-white/50" style={{ fontSize: '0.8125rem', fontFamily: 'Inter, sans-serif' }}>
+          <div className="text-white/50" style={{ fontSize: '0.6875rem', fontFamily: 'Inter, sans-serif' }}>
             {time}
           </div>
           <button
